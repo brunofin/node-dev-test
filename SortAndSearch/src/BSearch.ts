@@ -34,16 +34,17 @@ export abstract class BSearch implements ISearch<number> {
         }
     };
 
+    
     private static instance: BSearch = null;
 
     public static getInstance(): BSearch {
         if (BSearch.instance === null) {
             BSearch.instance = new BSearch.BSearchImpl();
         }
-
+        
         return BSearch.instance;
     }
 
-    public abstract find(array: Array<number>, number): number;
+    public abstract find(array: Array<number>, item: number): number;
     public abstract getNumberOfOperations(): number;
 }
