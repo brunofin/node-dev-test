@@ -20,4 +20,28 @@ describe('', () => {
       .get('/')
       .expect(404);
   });
+
+  it('/report/customer/2019-08-07 (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/report/customer/2019-08-07')
+      .expect({"customerName":"Jane Doe","totalPrice":110});
+  });
+
+  it('/report/customer/invalid (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/report/customer/invalid')
+      .expect({});
+  });
+
+  it('/report/products/2019-08-07 (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/report/products/2019-08-07')
+      .expect({"productName":"Cotton t-shirt XL","quantity":1,"totalPrice":25.75});
+  });
+
+  it('/report/products/invalid (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/report/products/invalid')
+      .expect({});
+  });
 });

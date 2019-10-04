@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     number: '2019/07/1',
     customer: 1,
